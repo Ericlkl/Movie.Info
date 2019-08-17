@@ -1,0 +1,29 @@
+{
+  "name": "cab432-a1",
+  "version": "1.0.0",
+  "description": "Cloud Application ( AWS | NodeJS | ReactJS )",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm run start --prefix client",
+    "client-install": "npm install --prefix client",
+    "build": "npm run build --prefix client",
+    "dev": "concurrently 'npm run server' 'npm run client' "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ericlkl/CAB432-A1.git"
+  },
+  "author": "KA LONG LEE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ericlkl/CAB432-A1/issues"
+  },
+  "homepage": "https://github.com/Ericlkl/CAB432-A1#readme",
+  "dependencies": {
+    "concurrently": "^4.1.2",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  }
+}
