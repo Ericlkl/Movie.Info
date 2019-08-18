@@ -37,3 +37,40 @@ export const RatingCountText = styled.div`
   font-size: 0.75rem;
   color: grey;
 `;
+
+export const MovieCard = styled.div`
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding: 2rem;
+`;
+
+export const CardContent = styled.div`
+  padding: 0 0.5rem;
+`;
+
+export const CardImg = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+export const CardHeader = styled.div`
+  border-bottom: 1px soild black;
+  margin-bottom: 0.5rem;
+  display: flex;
+`;
+
+export const CardHeaderInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const CardBody = styled.div`
+  padding: 1rem;
+`;
+
+export const CardFooter = styled.div`
+  border-top: 1px soild black;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+`;
