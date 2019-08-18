@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useContext } from 'react';
 // Components
 import Navbar from '../layout/Navbar';
 import MoviesContext from '../../context/Movies/MoviesContext';
-import MovieList from '../layout/MovieList';
+import Board from '../layout/Board';
 
 const TopRated = () => {
   const { movies, fetchTopRatedMovies, clearMovies } = useContext(
@@ -16,13 +16,11 @@ const TopRated = () => {
     // eslint-disable-next-line
   }, []);
 
-  console.log(movies);
-
   return (
     <Fragment>
       <Navbar />
       <h3 className='text-center m-5'>Top Rated Movies</h3>
-      <MovieList movies={movies} />
+      <Board movies={movies} />
     </Fragment>
   );
 };

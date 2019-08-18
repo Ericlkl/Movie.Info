@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import _ from 'lodash';
+
 import {
   MovieCard,
   CardHeader,
@@ -11,7 +13,7 @@ import {
 } from '../style/Movie';
 import moment from 'moment';
 
-const Card = ({ movie, rank }) => {
+const Card = ({ movie }) => {
   const {
     id,
     title,
@@ -34,7 +36,9 @@ const Card = ({ movie, rank }) => {
         <CardContent>
           <CardHeader>
             <CardHeaderInfo>
-              <h6>{title}</h6>
+              <Link to={`/movie/${id}`}>
+                <h6>{title}</h6>
+              </Link>
               <h6>
                 <i className='far fa-clock' /> {moment(release_date).calendar()}
               </h6>
@@ -70,6 +74,16 @@ const Card = ({ movie, rank }) => {
 };
 
 const Board = ({ movies }) => {
+  if (movies.length == 0) {
+    return (
+      <div className='d-flex justify-content-center'>
+        <div className='spinner-border' role='status'>
+          <span className='sr-only'>Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className='row m-3'>
       {movies.map((movie, i) => (
