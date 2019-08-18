@@ -3,9 +3,12 @@ import MoviesContext from '../../context/Movies/MoviesContext';
 import MovieList from '../layout/MovieList';
 
 const NowShowing = () => {
-  const { movies, fetchNowShowingMovies } = useContext(MoviesContext);
+  const { movies, fetchNowShowingMovies, clearMovies } = useContext(
+    MoviesContext
+  );
 
   useEffect(() => {
+    clearMovies();
     fetchNowShowingMovies();
     // eslint-disable-next-line
   }, []);

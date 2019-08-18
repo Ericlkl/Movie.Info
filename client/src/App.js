@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import MoviesState from './context/Movies/MoviesState';
+
 // Layout Components
 import Navbar from './components/layout/Navbar';
 
@@ -10,6 +11,8 @@ import NowShowing from './components/pages/NowShowing';
 import Popular from './components/pages/Popular';
 import TopRated from './components/pages/TopRated';
 import Upcoming from './components/pages/Upcoming';
+
+import './App.css';
 
 function App() {
   return (
