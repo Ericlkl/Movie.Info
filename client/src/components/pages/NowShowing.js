@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import MoviesContext from '../../context/Movies/MoviesContext';
-import List from '../layout/List';
+import MovieList from '../layout/MovieList';
 
 const NowShowing = () => {
   const { movies, fetchNowShowingMovies } = useContext(MoviesContext);
@@ -15,6 +15,7 @@ const NowShowing = () => {
   return (
     <div>
       <h3 className='text-center m-5'>Now Showing</h3>
+      <MovieList movies={movies} />
     </div>
   );
 };
