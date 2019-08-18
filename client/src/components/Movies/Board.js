@@ -74,7 +74,7 @@ const Card = ({ movie }) => {
 };
 
 const Board = ({ movies }) => {
-  if (movies.length == 0) {
+  if (movies.length === 0) {
     return (
       <div className='d-flex justify-content-center'>
         <div className='spinner-border' role='status'>
@@ -86,8 +86,8 @@ const Board = ({ movies }) => {
 
   return (
     <div className='row m-3'>
-      {movies.map((movie, i) => (
-        <Card movie={movie} rank={i + 1} />
+      {movies.map(movie => (
+        <Card movie={movie} />
       ))}
     </div>
   );

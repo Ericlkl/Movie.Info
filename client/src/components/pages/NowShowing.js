@@ -4,7 +4,7 @@ import MoviesContext from '../../context/Movies/MoviesContext';
 
 // Components
 import Navbar from '../layout/Navbar';
-import Board from '../layout/Board';
+import Board from '../Movies/Board';
 
 const NowShowing = () => {
   const { movies, fetchNowShowingMovies, clearMovies } = useContext(

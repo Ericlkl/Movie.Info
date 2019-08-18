@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useContext } from 'react';
 // Components
 import Navbar from '../layout/Navbar';
 import MoviesContext from '../../context/Movies/MoviesContext';
-import Board from '../layout/Board';
+import Board from '../Movies/Board';
 
 const TopRated = () => {
   const { movies, fetchTopRatedMovies, clearMovies } = useContext(

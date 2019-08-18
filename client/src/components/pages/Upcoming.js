@@ -3,7 +3,7 @@ import MoviesContext from '../../context/Movies/MoviesContext';
 
 // Components
 import Navbar from '../layout/Navbar';
-import Board from '../layout/Board';
+import Board from '../Movies/Board';
 
 const Upcoming = () => {
   const { movies, fetchUpcomingMovies, clearMovies } = useContext(
