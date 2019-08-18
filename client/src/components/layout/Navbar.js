@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const NavLink = ({ name, to, isCurrentPage }) => {
   return (
-    <li className={isCurrentPage ? 'nav-item active' : 'nav-item'}>
+    <li className={isCurrentPage ? 'nav-item active disabled' : 'nav-item'}>
       <Link className='nav-link' to={to}>
         {name} <span className='sr-only'>(current)</span>
       </Link>
@@ -12,19 +12,36 @@ const NavLink = ({ name, to, isCurrentPage }) => {
 };
 
 const Navbar = () => {
+  const href = window.location.href;
+
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
       <div className='container'>
-        <h3 className='navbar-brand' href='#'>
+        <Link to='/' className='navbar-brand'>
           Movie.Info
-        </h3>
+        </Link>
 
         <div className='navbar-nav ml-auto'>
-          <NavLink to='/' name='Home' isCurrentPage={true} />
-          <NavLink to='/now_showing' name='Now Showing' isCurrentPage={false} />
-          <NavLink to='/popular' name='Popular' isCurrentPage={false} />
-          <NavLink to='/top_rated' name='Top Rated' isCurrentPage={false} />
-          <NavLink to='/upcoming' name='UpComing' isCurrentPage={false} />
+          <NavLink
+            to='/now_showing'
+            name='Now Showing'
+            isCurrentPage={href.includes('now_showing')}
+          />
+          <NavLink
+            to='/popular'
+            name='Popular'
+            isCurrentPage={href.includes('popular')}
+          />
+          <NavLink
+            to='/top_rated'
+            name='Top Rated'
+            isCurrentPage={href.includes('top_rated')}
+          />
+          <NavLink
+            to='/upcoming'
+            name='UpComing'
+            isCurrentPage={href.includes('upcoming')}
+          />
         </div>
       </div>
     </nav>

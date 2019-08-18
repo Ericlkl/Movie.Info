@@ -1,5 +1,9 @@
-import React, { useEffect, useContext } from 'react';
+import React, { Fragment, useEffect, useContext } from 'react';
+
 import MoviesContext from '../../context/Movies/MoviesContext';
+
+// Components
+import Navbar from '../layout/Navbar';
 import MovieList from '../layout/MovieList';
 
 const NowShowing = () => {
@@ -16,10 +20,11 @@ const NowShowing = () => {
   console.log(movies);
 
   return (
-    <div>
+    <Fragment>
+      <Navbar />
       <h3 className='text-center m-5'>Now Showing</h3>
       <MovieList movies={movies} />
-    </div>
+    </Fragment>
   );
 };
 

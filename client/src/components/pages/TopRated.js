@@ -1,4 +1,7 @@
-import React, { useEffect, useContext } from 'react';
+import React, { Fragment, useEffect, useContext } from 'react';
+
+// Components
+import Navbar from '../layout/Navbar';
 import MoviesContext from '../../context/Movies/MoviesContext';
 import MovieList from '../layout/MovieList';
 
@@ -16,10 +19,11 @@ const TopRated = () => {
   console.log(movies);
 
   return (
-    <div>
+    <Fragment>
+      <Navbar />
       <h3 className='text-center m-5'>Top Rated Movies</h3>
       <MovieList movies={movies} />
-    </div>
+    </Fragment>
   );
 };
 

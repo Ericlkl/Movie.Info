@@ -1,6 +1,9 @@
-import React, { useEffect, useContext } from 'react';
+import React, { Fragment, useEffect, useContext } from 'react';
 import MoviesContext from '../../context/Movies/MoviesContext';
 import MovieList from '../layout/MovieList';
+
+// Components
+import Navbar from '../layout/Navbar';
 
 const Upcoming = () => {
   const { movies, fetchUpcomingMovies, clearMovies } = useContext(
@@ -16,10 +19,11 @@ const Upcoming = () => {
   console.log(movies);
 
   return (
-    <div>
+    <Fragment>
+      <Navbar />
       <h3 className='text-center m-5'>Upcoming Movies</h3>
       <MovieList movies={movies} />
-    </div>
+    </Fragment>
   );
 };
 
