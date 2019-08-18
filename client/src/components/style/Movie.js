@@ -41,11 +41,15 @@ export const RatingCountText = styled.div`
 export const MovieCard = styled.div`
   display: grid;
   grid-template-columns: 40% 60%;
-  padding: 2rem;
+  margin: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
 `;
 
 export const CardContent = styled.div`
   padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const CardImg = styled.img`
@@ -55,7 +59,6 @@ export const CardImg = styled.img`
 
 export const CardHeader = styled.div`
   border-bottom: 1px soild black;
-  margin-bottom: 0.5rem;
   display: flex;
 `;
 
@@ -66,11 +69,12 @@ export const CardHeaderInfo = styled.div`
 
 export const CardBody = styled.div`
   padding: 1rem;
+  margin: auto;
 `;
 
 export const CardFooter = styled.div`
   border-top: 1px soild black;
-  margin-top: 0.5rem;
+  margin-top: auto;
   display: flex;
   justify-content: space-between;
 `;

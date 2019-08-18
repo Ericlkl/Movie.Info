@@ -9,8 +9,9 @@ import {
   CardImg,
   CardContent
 } from '../style/Movie';
+import moment from 'moment';
 
-const Card = ({ movie }) => {
+const Card = ({ movie, rank }) => {
   const {
     id,
     title,
@@ -34,7 +35,9 @@ const Card = ({ movie }) => {
           <CardHeader>
             <CardHeaderInfo>
               <h6>{title}</h6>
-              <h6>{release_date}</h6>
+              <h6>
+                <i className='far fa-clock' /> {moment(release_date).calendar()}
+              </h6>
             </CardHeaderInfo>
           </CardHeader>
 
@@ -48,9 +51,17 @@ const Card = ({ movie }) => {
           </CardBody>
 
           <CardFooter>
-            <p>Count</p>
-            <p>Count</p>
-            <p>Count</p>
+            <p>
+              <i className='fab fa-gripfire' />
+              {popularity}
+            </p>
+            <p>
+              <i className='far fa-star' /> {vote_average} / 10
+            </p>
+            <p>
+              <i className='fas fa-users' />
+              {vote_count}
+            </p>
           </CardFooter>
         </CardContent>
       </MovieCard>
