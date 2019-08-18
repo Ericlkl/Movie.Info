@@ -5,7 +5,7 @@ import { movieAPI } from '../../api';
 import {
   FETCH_POPULAR_MOVIES,
   FETCH_TOP_RATED_MOVIES,
-  FETCH_NOW_PLAYING_MOVIES,
+  FETCH_NOW_SHOWING_MOVIES,
   FETCH_UPCOMING_MOVIES,
   FETCH_MOVIE,
   CLEAR_MOVIES
@@ -25,11 +25,11 @@ const MoviesState = props => {
     dispatch({ type: FETCH_POPULAR_MOVIES, payload });
   };
 
-  const fetchNowPlayingMovies = async () => {
+  const fetchNowShowingMovies = async () => {
     const res = await movieAPI.get('/movie/now_playing');
     const payload = res.data.results;
-
-    dispatch({ type: FETCH_NOW_PLAYING_MOVIES, payload });
+    console.log(payload);
+    dispatch({ type: FETCH_NOW_SHOWING_MOVIES, payload });
   };
 
   const fetchTopRatedMovies = async () => {
@@ -52,9 +52,9 @@ const MoviesState = props => {
     <MoviesContext.Provider
       value={{
         current: state.current,
-        courses: state.courses,
+        movies: state.movies,
         fetchPopularMovies,
-        fetchNowPlayingMovies,
+        fetchNowShowingMovies,
         fetchTopRatedMovies,
         fetchUpcomingMovies,
         clearMovies
