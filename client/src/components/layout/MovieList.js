@@ -25,14 +25,21 @@ const MovieListItem = ({ movie }) => {
           <h5>{title}</h5>
 
           <Rating>
+            <i className='fas fa-star fa-2x' />
             <RatingInfo>
               <h5>
                 {vote_average} <span style={{ fontSize: '0.4rem' }}>/10</span>
               </h5>
-              <RatingCountText>{vote_count}</RatingCountText>
+              <RatingCountText>
+                <i className='fas fa-users fa-1x' />
+                {vote_count}
+              </RatingCountText>
             </RatingInfo>
           </Rating>
-          <p>{release_date}</p>
+          <p>
+            <i class='far fa-calendar-alt' />
+            {release_date}
+          </p>
         </Container>
       </Link>
     </li>
@@ -40,6 +47,15 @@ const MovieListItem = ({ movie }) => {
 };
 
 const MovieList = ({ movies }) => {
+  if (movies.length == 0) {
+    return (
+      <div className='d-flex justify-content-center'>
+        <div className='spinner-border' role='status'>
+          <span className='sr-only'>Loading...</span>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className='m-5'>
       <ul className='list-group'>

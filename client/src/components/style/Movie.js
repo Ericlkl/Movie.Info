@@ -12,7 +12,11 @@ export const Container = styled.div`
   }
 
   *:nth-child(1) {
-    flex-grow: 0.3;
+    flex-grow: 0.2;
+  }
+
+  *:last-child {
+    flex-grow: 0.2;
   }
 `;
 
