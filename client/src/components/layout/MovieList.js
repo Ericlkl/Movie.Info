@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Rating, RatingInfo, RatingCountText } from '../style/Movie';
+import {
+  Container,
+  Rating,
+  RatingInfo,
+  RatingCountText,
+  Poster
+} from '../style/Movie';
 
-const MovieListItem = ({ movie }) => {
+const MovieListItem = ({ movie, rank }) => {
   const {
     id,
     title,
@@ -17,25 +23,23 @@ const MovieListItem = ({ movie }) => {
     <li className='list-group-item list-group-item-action'>
       <Link to={`/movie/${id}`}>
         <Container>
-          <h5>#1</h5>
-          <img
-            src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
+          <h5># {rank}</h5>
+          <Poster
+            src={`https://image.tmdb.org/t/p/w780/${poster_path}`}
             alt='movieImg'
           />
           <h5>{title}</h5>
 
-          <Rating>
-            <i className='fas fa-star fa-2x' />
-            <RatingInfo>
-              <h5>
-                {vote_average} <span style={{ fontSize: '0.4rem' }}>/10</span>
-              </h5>
-              <RatingCountText>
-                <i className='fas fa-users fa-1x' />
-                {vote_count}
-              </RatingCountText>
-            </RatingInfo>
-          </Rating>
+          <RatingInfo>
+            <h4>
+              <i className='fas fa-star' /> {vote_average} /10
+            </h4>
+            <RatingCountText>
+              <i className='fas fa-users fa-1x' />
+              {vote_count}
+            </RatingCountText>
+          </RatingInfo>
+
           <p>
             <i class='far fa-calendar-alt' />
             {release_date}
@@ -59,8 +63,8 @@ const MovieList = ({ movies }) => {
   return (
     <div className='m-5'>
       <ul className='list-group'>
-        {movies.map(movie => (
-          <MovieListItem movie={movie} key={movie.id} />
+        {movies.map((movie, i) => (
+          <MovieListItem movie={movie} rank={i + 1} key={movie.id} />
         ))}
       </ul>
     </div>

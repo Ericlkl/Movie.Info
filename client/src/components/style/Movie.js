@@ -7,12 +7,12 @@ export const Container = styled.div`
   padding: 1rem;
 
   * {
-    flex-grow: 1;
+    flex-grow: 2;
     flex-basis: 0;
   }
 
   *:nth-child(1) {
-    flex-grow: 0.2;
+    flex-grow: 0.3;
   }
 
   *:last-child {
@@ -20,12 +20,17 @@ export const Container = styled.div`
   }
 `;
 
+export const Poster = styled.img`
+  width: 300px;
+  height: 500px;
+`;
+
 export const Rating = styled.div`
   display: flex;
 `;
 
 export const RatingInfo = styled.div`
-  margin: 0.75rem;
+  margin: 0rem;
 `;
 
 export const RatingCountText = styled.div`
