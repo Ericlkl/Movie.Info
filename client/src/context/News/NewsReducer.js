@@ -9,7 +9,7 @@ export default (state = initState, action) => {
   switch (action.type) {
     case FETCH_NEWS:
       return {
-        ...state,
+        isloading: false,
         news: [...action.payload]
       };
     case CLEAR_NEWS:

@@ -1,9 +1,13 @@
 import React, { Fragment, useEffect, useContext } from 'react';
-
-import Navbar from '../layout/Navbar';
 import MoviesContext from '../../context/Movies/MoviesContext';
-import Description from '../Movies/Description';
+
+// Layout Component
+import Navbar from '../layout/Navbar';
 import Spinner from '../layout/Spinner';
+
+// Section Component
+import News from '../Media/News';
+import Description from '../Movies/Description';
 
 const Movie = props => {
   const movieID = props.match.params.id;
@@ -25,6 +29,7 @@ const Movie = props => {
     <Fragment>
       <Navbar />
       {current !== undefined ? <Description movie={current} /> : <Spinner />}
+      <News />
     </Fragment>
   );
 };
