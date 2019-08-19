@@ -97,3 +97,9 @@ export const DescriptionOverview = styled.div`
   flex-direction: column;
   color: #aaa;
 `;
+
+export const DescriptionWeb = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: #aaa;
+`;

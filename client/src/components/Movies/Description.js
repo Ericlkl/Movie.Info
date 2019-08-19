@@ -7,7 +7,8 @@ import {
   DescriptionStats,
   DescriptionTitle,
   DescriptionOverview,
-  DescriptionPoster
+  DescriptionPoster,
+  DescriptionWeb
 } from '../style/Movie';
 
 const Description = ({ movie }) => {
@@ -67,6 +68,16 @@ const Description = ({ movie }) => {
           <h5>Overview</h5>
           <p>{overview}</p>
         </DescriptionOverview>
+
+        <DescriptionWeb>
+          <h5>Website</h5>
+          <p>
+            <i className='fas fa-home' />{' '}
+            <a style={{ color: '#ccc' }} href={homepage}>
+              {homepage}
+            </a>
+          </p>
+        </DescriptionWeb>
       </DescriptionContent>
     </MovieDescription>
   );
