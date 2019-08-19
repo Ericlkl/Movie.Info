@@ -3,6 +3,7 @@ import MoviesContext from './MoviesContext';
 import MoviesReducer from './MoviesReducer';
 import { movieAPI } from '../../api';
 import { movieAPIkey } from '../../api/key';
+
 import {
   FETCH_POPULAR_MOVIES,
   FETCH_TOP_RATED_MOVIES,
@@ -14,7 +15,7 @@ import {
 
 const MoviesState = props => {
   const initState = {
-    current: {},
+    current: undefined,
     movies: []
   };
 
@@ -29,7 +30,6 @@ const MoviesState = props => {
   const fetchNowShowingMovies = async () => {
     const res = await movieAPI.get('/movie/now_playing');
     const payload = res.data.results;
-    console.log(payload);
     dispatch({ type: FETCH_NOW_SHOWING_MOVIES, payload });
   };
 

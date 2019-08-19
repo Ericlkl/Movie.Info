@@ -81,7 +81,7 @@ const Board = ({ movies }) => {
   return (
     <MovieBoard>
       {movies.map(movie => (
-        <Card movie={movie} />
+        <Card movie={movie} key={movie.id} />
       ))}
     </MovieBoard>
   );

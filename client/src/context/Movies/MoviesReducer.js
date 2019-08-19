@@ -8,7 +8,7 @@ import {
 } from '../action';
 
 const initState = {
-  current: {},
+  current: undefined,
   movies: []
 };
 

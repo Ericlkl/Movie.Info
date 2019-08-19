@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import moment from 'moment';
 import {
   MovieDescription,
@@ -10,6 +10,8 @@ import {
   DescriptionPoster,
   DescriptionWeb
 } from '../style/Movie';
+
+import NewsContext from '../../context/News/NewsContext';
 
 const Description = ({ movie }) => {
   const {
@@ -25,6 +27,13 @@ const Description = ({ movie }) => {
     vote_average,
     vote_count
   } = movie;
+
+  const { fetchNews } = useContext(NewsContext);
+
+  useEffect(() => {
+    fetchNews(title);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <MovieDescription
