@@ -5,7 +5,12 @@
 }
 
 a,
-a:active,
+a:active {
+  color: #212529;
+  text-decoration: none;
+}
+
 a:hover {
+  color: #01d277;
   text-decoration: none;
 }

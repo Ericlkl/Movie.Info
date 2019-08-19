@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import MoviesContext from './MoviesContext';
 import MoviesReducer from './MoviesReducer';
 import { movieAPI } from '../../api';
+import { movieAPIkey } from '../../api/key';
 import {
   FETCH_POPULAR_MOVIES,
   FETCH_TOP_RATED_MOVIES,
@@ -46,6 +47,20 @@ const MoviesState = props => {
     dispatch({ type: FETCH_UPCOMING_MOVIES, payload });
   };
 
+  const fetchMovie = async id => {
+    try {
+      const res = await movieAPI.get(`/movie/${id}`, {
+        params: {
+          api_key: movieAPIkey
+        }
+      });
+
+      dispatch({ type: FETCH_MOVIE, payload: res.data });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const clearMovies = () => dispatch({ type: CLEAR_MOVIES });
 
   return (
@@ -57,6 +72,7 @@ const MoviesState = props => {
         fetchNowShowingMovies,
         fetchTopRatedMovies,
         fetchUpcomingMovies,
+        fetchMovie,
         clearMovies
       }}
     >

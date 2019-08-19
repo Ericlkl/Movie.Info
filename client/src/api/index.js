@@ -1,13 +1,14 @@
 import axios from 'axios';
 
-const movieAPIkey =
-  'TViYzM4YjFkMjNjYmVkNCIsInN1YiI6IjVkNThhZTkyNzYxNDIxMDAxOWJmZWI5ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TWUxlmzNa2GuFtaPK8gk5k6GH4oqXqO5ABx7ZQQUpJs';
-
 export const movieAPI = axios.create({
-  baseURL: 'https://api.themoviedb.org/3/',
-  params: {
-    api_key: movieAPIkey
-  }
+  baseURL: 'https://api.themoviedb.org/3/'
 });
 
-export const newsAPI = axios;
+export const newsAPI = axios.create({
+  baseURL: 'https://newsapi.org/v2/everything'
+  // params: {
+  //   from: '2019-07-19',
+  //   sortBy: 'published',
+  //   apiKey: NewsAPIkey
+  // }
+});

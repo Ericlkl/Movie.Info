@@ -4,6 +4,7 @@ import MoviesState from './context/Movies/MoviesState';
 
 // Pages
 import Home from './components/pages/Home';
+import Movie from './components/pages/Movie';
 import NowShowing from './components/pages/NowShowing';
 import Popular from './components/pages/Popular';
 import TopRated from './components/pages/TopRated';
@@ -21,6 +22,7 @@ function App() {
           <Route path='/popular' exact component={Popular} />
           <Route path='/top_rated' exact component={TopRated} />
           <Route path='/upcoming' exact component={Upcoming} />
+          <Route path='/movie/:id' component={Movie} />
         </Switch>
       </BrowserRouter>
     </MoviesState>

@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { device } from './settings/devices';
 
 export const MovieCard = styled.div`
   display: grid;
   grid-template-columns: 40% 60%;
-  margin: 2rem;
+  width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
 `;
@@ -26,12 +27,18 @@ export const CardHeader = styled.div`
 
 export const CardHeaderInfo = styled.div`
   display: flex;
+  margin: 1rem 0;
   flex-direction: column;
 `;
 
 export const CardBody = styled.div`
-  padding: 1rem;
+  padding: 0 0.6rem;
   margin: auto;
+  overflow: hidden;
+  flex-grow: 2;
+  > p {
+    font-size: 0.7rem;
+  }
 `;
 
 export const CardFooter = styled.div`
@@ -39,4 +46,15 @@ export const CardFooter = styled.div`
   margin-top: auto;
   display: flex;
   justify-content: space-between;
+`;
+
+export const MovieBoard = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  margin: 2rem;
+`;
+
+export const MovieStats = styled.p`
+  font-size: 0.8rem;
 `;
