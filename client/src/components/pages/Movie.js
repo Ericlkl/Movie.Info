@@ -6,8 +6,9 @@ import Navbar from '../layout/Navbar';
 import Spinner from '../layout/Spinner';
 
 // Section Component
-import News from '../Media/News';
 import Description from '../Movies/Description';
+import News from '../Media/News';
+import Tweets from '../Media/Twitter';
 
 const Movie = props => {
   const movieID = props.match.params.id;
@@ -30,6 +31,7 @@ const Movie = props => {
       <Navbar />
       {current !== undefined ? <Description movie={current} /> : <Spinner />}
       <News />
+      <Tweets />
     </Fragment>
   );
 };

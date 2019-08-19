@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import MoviesState from './context/Movies/MoviesState';
 import NewsState from './context/News/NewsState';
+import TweetsState from './context/Tweets/TweetsState';
 
 // Pages
 import Home from './components/pages/Home';
@@ -15,20 +16,22 @@ import './App.css';
 
 function App() {
   return (
-    <NewsState>
-      <MoviesState>
-        <BrowserRouter>
-          <Switch>
-            <Route path='/' exact component={Home} />
-            <Route path='/now_showing' exact component={NowShowing} />
-            <Route path='/popular' exact component={Popular} />
-            <Route path='/top_rated' exact component={TopRated} />
-            <Route path='/upcoming' exact component={Upcoming} />
-            <Route path='/movie/:id' component={Movie} />
-          </Switch>
-        </BrowserRouter>
-      </MoviesState>
-    </NewsState>
+    <TweetsState>
+      <NewsState>
+        <MoviesState>
+          <BrowserRouter>
+            <Switch>
+              <Route path='/' exact component={Home} />
+              <Route path='/now_showing' exact component={NowShowing} />
+              <Route path='/popular' exact component={Popular} />
+              <Route path='/top_rated' exact component={TopRated} />
+              <Route path='/upcoming' exact component={Upcoming} />
+              <Route path='/movie/:id' component={Movie} />
+            </Switch>
+          </BrowserRouter>
+        </MoviesState>
+      </NewsState>
+    </TweetsState>
   );
 }
 

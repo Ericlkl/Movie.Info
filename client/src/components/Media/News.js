@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import moment from 'moment';
 
 import Spinner from '../layout/Spinner';
@@ -11,11 +11,11 @@ const TableRow = ({ article, number }) => {
   return (
     <tr>
       <th scope='row'>{number}</th>
-      <td>{`${author} (${source.name})`} </td>
-      <a href={url}>
-        <td>{title}</td>
-      </a>
+      <td>
+        <a href={url}>{title}</a>
+      </td>
       <td>{description}</td>
+      <td>{`${author} (${source.name})`} </td>
       <td>{moment(publishedAt).calendar()}</td>
     </tr>
   );
@@ -27,15 +27,15 @@ const NewsTable = ({ news }) => {
       <thead>
         <tr>
           <th scope='col'>#</th>
-          <th scope='col'>Author</th>
           <th scope='col'>title</th>
           <th scope='col'>Description</th>
+          <th scope='col'>Author</th>
           <th scope='col'>date</th>
         </tr>
       </thead>
       <tbody>
         {news.map((article, i) => (
-          <TableRow article={article} number={i + 1} />
+          <TableRow key={i} article={article} number={i + 1} />
         ))}
       </tbody>
     </table>
@@ -43,10 +43,13 @@ const NewsTable = ({ news }) => {
 };
 
 const News = () => {
-  const { news, isloading } = useContext(NewsContext);
-  console.log(news);
+  const { news, isloading, clearNews } = useContext(NewsContext);
+
+  // eslint-disable-next-line
+  useEffect(() => () => clearNews(), []);
+
   return (
-    <Section>
+    <Section bgColor='#f4f4f4'>
       <SectionContainer>
         <SectionTitle>News</SectionTitle>
         {isloading ? <Spinner /> : <NewsTable news={news} />}

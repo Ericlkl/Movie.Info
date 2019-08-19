@@ -12,6 +12,7 @@ import {
 } from '../style/Movie';
 
 import NewsContext from '../../context/News/NewsContext';
+import TweetsContext from '../../context/Tweets/TweetsContext';
 
 const Description = ({ movie }) => {
   const {
@@ -29,9 +30,11 @@ const Description = ({ movie }) => {
   } = movie;
 
   const { fetchNews } = useContext(NewsContext);
+  const { fetchTweets } = useContext(TweetsContext);
 
   useEffect(() => {
     fetchNews(title);
+    fetchTweets(title);
     // eslint-disable-next-line
   }, []);
 

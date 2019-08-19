@@ -5,11 +5,12 @@ export const SectionContainer = styled.div.attrs({
 })``;
 
 export const Section = styled.div`
+  padding: 2rem 0;
   background-color: ${props => props.bgColor};
 `;
 
 export const SectionTitle = styled.h1`
   color: ${props => props.color};
   text-align: center;
-  margin: 1rem;
+  margin: 2rem 1rem;
 `;

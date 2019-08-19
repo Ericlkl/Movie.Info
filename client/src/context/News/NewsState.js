@@ -20,7 +20,8 @@ const NewsState = props => {
         q: movie,
         from: '2019-07-19',
         sortBy: 'published',
-        apiKey: NewsAPIkey
+        apiKey: NewsAPIkey,
+        pageSize: 5
       }
     });
     dispatch({
