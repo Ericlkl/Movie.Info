@@ -1,7 +1,8 @@
+import axios from 'axios';
 import React, { useReducer } from 'react';
+
 import TweetsContext from './TweetsContext';
 import TweetsReducer from './TweetsReducer';
-import { twit } from '../../api/index';
 import { FETCH_TWEETS, CLEAR_TWEETS } from '../action';
 
 const initState = {
@@ -13,12 +14,10 @@ const TweetsState = props => {
   const [state, dispatch] = useReducer(TweetsReducer, initState);
 
   const fetchTweets = async movie => {
-    const data = await twit.get('search/tweets', {
-      q: `${movie} since:2011-07-11`,
-      count: 100
-    });
+    const res = await axios.post('/api/tweets', { query: movie });
 
-    console.log(data);
+    console.log(res.data);
+
     // dispatch({type: FETCH_TWEETS, payload})
   };
 

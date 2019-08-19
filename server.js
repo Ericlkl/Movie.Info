@@ -13,5 +13,8 @@ app.get('/demo', (req, res) => {
   res.json({ msg: 'Hello World' });
 });
 
+// Plug Router in
+require('./routes')(app);
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is listening on Port ${PORT}`));
