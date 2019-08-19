@@ -16,9 +16,7 @@ const TweetsState = props => {
   const fetchTweets = async movie => {
     const res = await axios.post('/api/tweets', { query: movie });
 
-    console.log(res.data);
-
-    // dispatch({type: FETCH_TWEETS, payload})
+    dispatch({ type: FETCH_TWEETS, payload: res.data });
   };
 
   const clearTweets = () => dispatch({ type: CLEAR_TWEETS });

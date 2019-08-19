@@ -12,17 +12,16 @@ router.post('/', (req, res) => {
 
   // Set up your search parameters
   var params = {
-    q: `#${query}`,
+    q: query,
     count: 10,
     result_type: 'recent',
     lang: 'en'
   };
 
-  twitterAPI.get('search/tweets', params, (err, data, response) => {
+  twitterAPI.get('search/tweets', params, (err, data) => {
     if (err) return console.log(err);
-    console.log(data);
 
-    res.json(data);
+    res.json(data.statuses);
   });
 });
 
