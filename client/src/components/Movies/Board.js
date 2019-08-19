@@ -58,14 +58,14 @@ const Card = ({ movie }) => {
         </CardBody>
 
         <CardFooter>
-          <MovieStats>
+          <MovieStats size='0.8rem'>
             <i className='fab fa-gripfire' />
             {popularity}
           </MovieStats>
-          <MovieStats>
+          <MovieStats size='0.8rem'>
             <i className='far fa-star' /> {vote_average} / 10
           </MovieStats>
-          <MovieStats>
+          <MovieStats size='0.8rem'>
             <i className='fas fa-users' />
             {vote_count}
           </MovieStats>

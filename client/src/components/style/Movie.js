@@ -56,5 +56,44 @@ export const MovieBoard = styled.div`
 `;
 
 export const MovieStats = styled.p`
-  font-size: 0.8rem;
+  font-size: ${props => props.size};
+  &:hover {
+    color: ${props => props.hoverColor};
+  }
+`;
+
+export const MovieDescription = styled.div`
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-gap: 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 4rem 7rem;
+  color: white;
+`;
+
+export const DescriptionPoster = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+export const DescriptionStats = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const DescriptionContent = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const DescriptionTitle = styled.h3`
+  color: white;
+`;
+
+export const DescriptionOverview = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: #aaa;
 `;

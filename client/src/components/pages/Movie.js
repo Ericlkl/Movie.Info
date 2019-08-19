@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect, useContext } from 'react';
+
 import Navbar from '../layout/Navbar';
 import MoviesContext from '../../context/Movies/MoviesContext';
+import Description from '../Movies/Description';
 
 const Movie = props => {
   const movieID = props.match.params.id;
@@ -21,7 +23,7 @@ const Movie = props => {
   return (
     <Fragment>
       <Navbar />
-      <h1>Hello {current.title}</h1>
+      <Description movie={current} />
     </Fragment>
   );
 };
