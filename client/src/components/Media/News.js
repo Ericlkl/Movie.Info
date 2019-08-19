@@ -6,16 +6,23 @@ import NewsContext from '../../context/News/NewsContext';
 import { Section, SectionTitle, SectionContainer } from '../style/layout';
 
 const TableRow = ({ article, number }) => {
-  const { author, description, title, url, source, publishedAt } = article;
-
+  const {
+    author,
+    description,
+    title,
+    url,
+    source,
+    publishedAt,
+    urlToImage
+  } = article;
   return (
     <tr>
       <th scope='row'>{number}</th>
       <td>
-        <a href={url}>{title}</a>
+        <a href={url}>{`${title} - ${author} (${source.name})`}</a>
+        <img src={urlToImage} className='img-fluid' alt='cover' />
       </td>
       <td>{description}</td>
-      <td>{`${author} (${source.name})`} </td>
       <td>{moment(publishedAt).calendar()}</td>
     </tr>
   );
@@ -29,7 +36,6 @@ const NewsTable = ({ news }) => {
           <th scope='col'>#</th>
           <th scope='col'>title</th>
           <th scope='col'>Description</th>
-          <th scope='col'>Author</th>
           <th scope='col'>date</th>
         </tr>
       </thead>
