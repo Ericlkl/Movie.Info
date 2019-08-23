@@ -51,6 +51,7 @@ export const CardFooter = styled.div`
 export const MovieBoard = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 400px;
   grid-gap: 1rem;
   margin: 2rem;
 `;

@@ -27,21 +27,6 @@ const Navbar = () => {
             name='Ranking'
             isCurrentPage={href.includes('ranking')}
           />
-          <NavLink
-            to='/popular'
-            name='Popular'
-            isCurrentPage={href.includes('popular')}
-          />
-          <NavLink
-            to='/top_rated'
-            name='Top Rated'
-            isCurrentPage={href.includes('top_rated')}
-          />
-          <NavLink
-            to='/upcoming'
-            name='UpComing'
-            isCurrentPage={href.includes('upcoming')}
-          />
         </div>
       </div>
     </nav>

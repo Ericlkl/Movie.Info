@@ -1,60 +1,41 @@
 import React, { useReducer } from 'react';
 import MoviesContext from './MoviesContext';
 import MoviesReducer from './MoviesReducer';
-import { movieAPI } from '../../api';
-import { movieAPIkey } from '../../api/key';
-
+import axios from 'axios';
 import {
-  FETCH_POPULAR_MOVIES,
-  FETCH_TOP_RATED_MOVIES,
-  FETCH_NOW_SHOWING_MOVIES,
-  FETCH_UPCOMING_MOVIES,
+  FETCH_MOVIES,
   FETCH_MOVIE,
+  SET_CONTROL,
   CLEAR_MOVIES
 } from '../action';
 
 const MoviesState = props => {
   const initState = {
     current: undefined,
-    movies: []
+    movies: [],
+    control: {
+      lang: 'en',
+      ranking_type: 'popular'
+    }
   };
 
   const [state, dispatch] = useReducer(MoviesReducer, initState);
 
-  const fetchPopularMovies = async () => {
-    const res = await movieAPI.get('/movie/popular');
-    const payload = res.data.results;
-    dispatch({ type: FETCH_POPULAR_MOVIES, payload });
+  const setControl = newControlState => {
+    dispatch({ type: SET_CONTROL, payload: newControlState });
   };
 
-  const fetchNowShowingMovies = async () => {
-    const res = await movieAPI.get('/movie/now_playing');
-    const payload = res.data.results;
-    dispatch({ type: FETCH_NOW_SHOWING_MOVIES, payload });
-  };
-
-  const fetchTopRatedMovies = async () => {
-    const res = await movieAPI.get('/movie/top_rated');
-    const payload = res.data.results;
-
-    dispatch({ type: FETCH_TOP_RATED_MOVIES, payload });
-  };
-
-  const fetchUpcomingMovies = async () => {
-    const res = await movieAPI.get('/movie/upcoming');
-    const payload = res.data.results;
-
-    dispatch({ type: FETCH_UPCOMING_MOVIES, payload });
+  const fetchMovies = async () => {
+    const res = await axios.get('/api/movies/', {
+      params: state.control
+    });
+    const payload = res.data;
+    dispatch({ type: FETCH_MOVIES, payload });
   };
 
   const fetchMovie = async id => {
     try {
-      const res = await movieAPI.get(`/movie/${id}`, {
-        params: {
-          api_key: movieAPIkey
-        }
-      });
-
+      const res = await axios.get(`/api/movies/${id}`);
       dispatch({ type: FETCH_MOVIE, payload: res.data });
     } catch (error) {
       console.log(error);
@@ -68,11 +49,10 @@ const MoviesState = props => {
       value={{
         current: state.current,
         movies: state.movies,
-        fetchPopularMovies,
-        fetchNowShowingMovies,
-        fetchTopRatedMovies,
-        fetchUpcomingMovies,
+        control: state.control,
         fetchMovie,
+        fetchMovies,
+        setControl,
         clearMovies
       }}
     >

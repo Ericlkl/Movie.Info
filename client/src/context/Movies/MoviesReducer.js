@@ -1,23 +1,27 @@
 import {
-  FETCH_POPULAR_MOVIES,
-  FETCH_TOP_RATED_MOVIES,
-  FETCH_NOW_SHOWING_MOVIES,
-  FETCH_UPCOMING_MOVIES,
   FETCH_MOVIE,
+  SET_CONTROL,
+  FETCH_MOVIES,
   CLEAR_MOVIES
 } from '../action';
 
 const initState = {
   current: undefined,
-  movies: []
+  movies: [],
+  control: {
+    lang: 'en',
+    ranking_type: 'popular'
+  }
 };
 
 export default (state = initState, action) => {
   switch (action.type) {
-    case FETCH_POPULAR_MOVIES:
-    case FETCH_TOP_RATED_MOVIES:
-    case FETCH_NOW_SHOWING_MOVIES:
-    case FETCH_UPCOMING_MOVIES:
+    case SET_CONTROL:
+      return {
+        ...initState,
+        control: action.payload
+      };
+    case FETCH_MOVIES:
       return {
         ...state,
         movies: [...action.payload]
