@@ -14,7 +14,11 @@ const TweetsState = props => {
   const [state, dispatch] = useReducer(TweetsReducer, initState);
 
   const fetchTweets = async movie => {
-    const res = await axios.post('/api/tweets', { query: movie });
+    const res = await axios.get('/api/tweets', {
+      params: {
+        query: movie
+      }
+    });
 
     dispatch({ type: FETCH_TWEETS, payload: res.data });
   };

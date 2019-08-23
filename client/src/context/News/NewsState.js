@@ -1,10 +1,9 @@
 import React, { useReducer } from 'react';
+import axios from 'axios';
 import NewsContext from './NewsContext';
 import NewsReducer from './NewsReducer';
 
 import { FETCH_NEWS, CLEAR_NEWS } from '../action';
-import { newsAPI } from '../../api/index';
-import { NewsAPIkey } from '../../api/key';
 
 const NewsState = props => {
   const initState = {
@@ -15,13 +14,9 @@ const NewsState = props => {
   const [state, dispatch] = useReducer(NewsReducer, initState);
 
   const fetchNews = async movie => {
-    const res = await newsAPI.get('', {
+    const res = await axios.get(`/api/news/`, {
       params: {
-        q: movie,
-        from: '2019-07-19',
-        sortBy: 'published',
-        apiKey: NewsAPIkey,
-        pageSize: 5
+        keyword: movie
       }
     });
     dispatch({

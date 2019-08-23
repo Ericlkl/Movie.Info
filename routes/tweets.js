@@ -8,8 +8,8 @@ const twConfig = config.get('tweeterAPI');
 
 var twitterAPI = new Twitter(twConfig);
 
-router.post('/', (req, res) => {
-  const { query } = req.body;
+router.get('/', (req, res) => {
+  const { query } = req.query;
 
   // Set up your search parameters
   var params = {
