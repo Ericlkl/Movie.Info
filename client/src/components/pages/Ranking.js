@@ -89,15 +89,10 @@ const RankingControl = () => {
 };
 
 const Ranking = () => {
-  const { movies, fetchMovies, control, clearMovies } = useContext(
-    MoviesContext
-  );
+  const { movies, fetchMovies, control } = useContext(MoviesContext);
 
   useEffect(() => {
     fetchMovies();
-    return () => {
-      clearMovies();
-    };
     // eslint-disable-next-line
   }, [control]);
 

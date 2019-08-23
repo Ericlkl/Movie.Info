@@ -17,7 +17,6 @@ import TweetsContext from '../../context/Tweets/TweetsContext';
 const Description = ({ movie }) => {
   const {
     backdrop_path,
-    budget,
     homepage,
     overview,
     popularity,
@@ -69,6 +68,11 @@ const Description = ({ movie }) => {
           <MovieStats size='2rem' hoverColor='#02b875'>
             <i className='fas fa-users' />
             {' ' + vote_count}
+          </MovieStats>
+
+          <MovieStats size='2rem' hoverColor='#02b875'>
+            <i className='fas fa-globe-asia' />
+            {' ' + status}
           </MovieStats>
 
           <MovieStats size='2rem' hoverColor='#e4405f'>

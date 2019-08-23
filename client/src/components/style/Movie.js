@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { device } from './settings/devices';
 
 export const MovieCard = styled.div`
   display: grid;

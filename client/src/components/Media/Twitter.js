@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react';
-import moment from 'moment';
 import TweetsContext from '../../context/Tweets/TweetsContext';
 import Spinner from '../layout/Spinner';
 
@@ -30,6 +29,7 @@ const Card = ({ tweet }) => {
     </div>
   );
 };
+
 const Board = ({ tweets }) => {
   return (
     <div className='card-columns'>
