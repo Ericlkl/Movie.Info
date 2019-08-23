@@ -3,9 +3,10 @@ const router = express.Router();
 
 // app.js
 const Twitter = require('twitter');
-const config = require('../config/');
+const config = require('config');
+const twConfig = config.get('tweeterAPI');
 
-var twitterAPI = new Twitter(config);
+var twitterAPI = new Twitter(twConfig);
 
 router.post('/', (req, res) => {
   const { query } = req.body;

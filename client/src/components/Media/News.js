@@ -19,7 +19,9 @@ const TableRow = ({ article, number }) => {
     <tr>
       <th scope='row'>{number}</th>
       <td>
-        <a href={url}>{`${title} - ${author} (${source.name})`}</a>
+        <a className='text-muted' href={url}>{`${title} - ${author} (${
+          source.name
+        })`}</a>
         <img src={urlToImage} className='img-fluid' alt='cover' />
       </td>
       <td>{description}</td>
