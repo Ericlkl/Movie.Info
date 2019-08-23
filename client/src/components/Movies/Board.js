@@ -2,7 +2,6 @@ import React, { Fragment, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
-import MoviesContext from '../../context/Movies/MoviesContext';
 import Spinner from '../layout/Spinner';
 
 import {
@@ -59,14 +58,14 @@ const Card = ({ movie }) => {
         </CardBody>
 
         <CardFooter>
-          <MovieStats size='0.8rem'>
+          <MovieStats>
             <i className='fab fa-gripfire' />
             {popularity}
           </MovieStats>
-          <MovieStats size='0.8rem'>
+          <MovieStats>
             <i className='far fa-star' /> {vote_average} / 10
           </MovieStats>
-          <MovieStats size='0.8rem'>
+          <MovieStats>
             <i className='fas fa-users' />
             {vote_count}
           </MovieStats>

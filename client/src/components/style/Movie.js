@@ -13,11 +13,13 @@ export const CardContent = styled.div`
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
+  min-width: 430px;
 `;
 
 export const CardImg = styled.img`
   width: 100%;
   height: 100%;
+  min-width: 300px;
 `;
 
 export const CardHeader = styled.div`
@@ -36,9 +38,6 @@ export const CardBody = styled.div`
   margin: auto;
   overflow: hidden;
   flex-grow: 2;
-  > p {
-    font-size: 0.7rem;
-  }
 `;
 
 export const CardFooter = styled.div`
@@ -66,7 +65,8 @@ export const MovieStats = styled.p`
 export const MovieDescription = styled.div`
   display: grid;
   grid-template-columns: 30% 70%;
-  grid-gap: 1rem;
+  grid-template-rows: 60vh;
+  grid-gap: 2rem;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -77,6 +77,7 @@ export const MovieDescription = styled.div`
 export const DescriptionPoster = styled.img`
   width: 100%;
   height: 100%;
+  min-width: 350px;
 `;
 
 export const DescriptionStats = styled.div`
@@ -89,7 +90,7 @@ export const DescriptionContent = styled.div`
   flex-direction: column;
 `;
 
-export const DescriptionTitle = styled.h3`
+export const DescriptionTitle = styled.h1`
   color: white;
 `;
 
@@ -97,10 +98,12 @@ export const DescriptionOverview = styled.div`
   display: flex;
   flex-direction: column;
   color: #aaa;
+  min-width: 800px;
 `;
 
 export const DescriptionWeb = styled.div`
   display: flex;
   flex-direction: column;
   color: #aaa;
+  margin-top: auto;
 `;

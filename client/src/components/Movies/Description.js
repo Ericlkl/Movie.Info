@@ -57,21 +57,21 @@ const Description = ({ movie }) => {
         </DescriptionTitle>
 
         <DescriptionStats>
-          <MovieStats size='1.2rem' hoverColor='#cd201f'>
+          <MovieStats size='2rem' hoverColor='#cd201f'>
             <i className='fab fa-gripfire' />
             {' ' + popularity}
           </MovieStats>
 
-          <MovieStats size='1.2rem' hoverColor='#FFFC00'>
+          <MovieStats size='2rem' hoverColor='#FFFC00'>
             <i className='far fa-star' /> {vote_average} / 10
           </MovieStats>
 
-          <MovieStats size='1.2rem' hoverColor='#02b875'>
+          <MovieStats size='2rem' hoverColor='#02b875'>
             <i className='fas fa-users' />
             {' ' + vote_count}
           </MovieStats>
 
-          <MovieStats size='1.2rem' hoverColor='#e4405f'>
+          <MovieStats size='2rem' hoverColor='#e4405f'>
             <i className='far fa-clock' /> {moment(release_date).calendar()}
           </MovieStats>
         </DescriptionStats>

@@ -43,7 +43,6 @@ const RankingControl = () => {
             value={control.ranking_type}
             onChange={onSelect}
           >
-            <option value='latest'>Latest</option>
             <option value='now_playing'>Now Playing</option>
             <option value='popular'>Popular</option>
             <option value='top_rated'>Top Rated</option>
@@ -56,9 +55,7 @@ const RankingControl = () => {
 };
 
 const Ranking = () => {
-  const { movies, fetchMovies, clearMovies, control } = useContext(
-    MoviesContext
-  );
+  const { movies, fetchMovies, control } = useContext(MoviesContext);
 
   useEffect(() => {
     fetchMovies();
