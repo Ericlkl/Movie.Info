@@ -5,7 +5,7 @@ import NewsState from './context/News/NewsState';
 import TweetsState from './context/Tweets/TweetsState';
 
 // Pages
-import Home from './components/pages/Home';
+import Search from './components/pages/Search';
 import Movie from './components/pages/Movie';
 import Ranking from './components/pages/Ranking';
 
@@ -18,7 +18,8 @@ function App() {
         <MoviesState>
           <BrowserRouter>
             <Switch>
-              <Route path='/' exact component={Home} />
+              <Route path='/' exact component={Search} />
+              <Route path='/search' exact component={Search} />
               <Route path='/ranking' exact component={Ranking} />
               <Route path='/movie/:id' component={Movie} />
             </Switch>

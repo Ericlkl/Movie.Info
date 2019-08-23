@@ -23,6 +23,11 @@ const Navbar = () => {
 
         <div className='navbar-nav ml-auto'>
           <NavLink
+            to='/'
+            name='Search'
+            isCurrentPage={href.includes('search')}
+          />
+          <NavLink
             to='/ranking'
             name='Ranking'
             isCurrentPage={href.includes('ranking')}

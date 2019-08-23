@@ -33,6 +33,16 @@ const MoviesState = props => {
     dispatch({ type: FETCH_MOVIES, payload });
   };
 
+  const fetchMoviesByName = async name => {
+    const res = await axios.get('/api/search/movie', {
+      params: {
+        name
+      }
+    });
+    const payload = res.data;
+    dispatch({ type: FETCH_MOVIES, payload });
+  };
+
   const fetchMovie = async id => {
     try {
       const res = await axios.get(`/api/movies/${id}`);
@@ -52,6 +62,7 @@ const MoviesState = props => {
         control: state.control,
         fetchMovie,
         fetchMovies,
+        fetchMoviesByName,
         setControl,
         clearMovies
       }}
