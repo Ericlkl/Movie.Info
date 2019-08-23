@@ -1,6 +1,7 @@
 import React, { Fragment, useContext, useState, useEffect } from 'react';
 // Layout Components
 import Navbar from '../layout/Navbar';
+import Board from '../Movies/Board';
 import MoviesContext from '../../context/Movies/MoviesContext';
 
 const SearchBar = () => {
@@ -41,7 +42,6 @@ const SearchBar = () => {
 
 const Search = () => {
   const { movies, clearMovies } = useContext(MoviesContext);
-  console.log(movies);
 
   useEffect(() => {
     clearMovies();
@@ -50,11 +50,13 @@ const Search = () => {
     };
     // eslint-disable-next-line
   }, []);
+
   return (
     <Fragment>
       <Navbar />
       <h1 className='text-center m-5'>Search Movie</h1>
       <SearchBar />
+      {movies.length !== 0 ? <Board movies={movies} /> : null}
     </Fragment>
   );
 };
