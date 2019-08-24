@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
+
+// Context State
 import MoviesState from './context/Movies/MoviesState';
 import NewsState from './context/News/NewsState';
 import TweetsState from './context/Tweets/TweetsState';

@@ -1,11 +1,17 @@
-import React, { useContext, useEffect } from 'react';
-import TweetsContext from '../../context/Tweets/TweetsContext';
-import Spinner from '../layout/Spinner';
+// import modules
 import moment from 'moment';
+import React, { useContext, useEffect } from 'react';
 
+// Import Component
+import Spinner from '../layout/Spinner';
+// Import Styled Components
 import { Section, SectionTitle, SectionContainer } from '../style/layout';
 
+// Import Context API
+import TweetsContext from '../../context/Tweets/TweetsContext';
+
 const Card = ({ tweet }) => {
+  // get tweet property from tweet object
   const { text, user, entities, created_at } = tweet;
   return (
     <div className='card'>
@@ -32,6 +38,7 @@ const Card = ({ tweet }) => {
   );
 };
 
+// Tweets Board Component for literating the tweets
 const Board = ({ tweets }) => {
   return (
     <div className='card-columns'>
@@ -42,9 +49,12 @@ const Board = ({ tweets }) => {
   );
 };
 
+// Twitter Section Component
 const Twitter = () => {
+  // Get tweets variable and function from TweetsContext API
   const { tweets, isloading, clearTweets } = useContext(TweetsContext);
 
+  // When user leave this page , clean tweets
   // eslint-disable-next-line
   useEffect(() => () => clearTweets(), []);
 

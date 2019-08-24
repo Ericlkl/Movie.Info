@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Navagation Link Component
 const NavLink = ({ name, to, isCurrentPage }) => {
   return (
     <li className={isCurrentPage ? 'nav-item active disabled' : 'nav-item'}>
@@ -11,7 +12,9 @@ const NavLink = ({ name, to, isCurrentPage }) => {
   );
 };
 
+// Navbar Component
 const Navbar = () => {
+  // Read current URL location as string
   const href = window.location.href;
 
   return (

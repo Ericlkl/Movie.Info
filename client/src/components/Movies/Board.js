@@ -1,9 +1,13 @@
+// import modules
+import _ from 'lodash';
+import moment from 'moment';
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import _ from 'lodash';
 
+// import Component
 import Spinner from '../layout/Spinner';
 
+// import Styled-components
 import {
   MovieBoard,
   MovieCard,
@@ -15,9 +19,10 @@ import {
   CardContent,
   MovieStats
 } from '../style/Movie';
-import moment from 'moment';
 
+// Card Component
 const Card = ({ movie }) => {
+  // get movie properties from props
   const {
     id,
     title,
@@ -75,7 +80,9 @@ const Card = ({ movie }) => {
   );
 };
 
+// Board Component for Iterating movies
 const Board = ({ movies }) => {
+  // Dont show the board when there is no movies
   if (movies.length === 0) return <Spinner />;
 
   return (

@@ -1,5 +1,8 @@
-import React, { useContext, useEffect } from 'react';
+// import module
 import moment from 'moment';
+import React, { useContext, useEffect } from 'react';
+
+// import Styled component
 import {
   MovieDescription,
   MovieStats,
@@ -11,10 +14,12 @@ import {
   DescriptionWeb
 } from '../style/Movie';
 
+// Import Context API
 import NewsContext from '../../context/News/NewsContext';
 import TweetsContext from '../../context/Tweets/TweetsContext';
 
 const Description = ({ movie }) => {
+  // Get properties from movie object
   const {
     backdrop_path,
     homepage,
@@ -28,9 +33,11 @@ const Description = ({ movie }) => {
     vote_count
   } = movie;
 
+  // Get function from Context API
   const { fetchNews } = useContext(NewsContext);
   const { fetchTweets } = useContext(TweetsContext);
 
+  // When the component initialize fetch news and tweets related to this movie
   useEffect(() => {
     fetchNews(title);
     fetchTweets(title);

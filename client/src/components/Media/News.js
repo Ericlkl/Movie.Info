@@ -1,11 +1,16 @@
 import React, { useContext, useEffect } from 'react';
 import moment from 'moment';
 
+// Import Component
 import Spinner from '../layout/Spinner';
-import NewsContext from '../../context/News/NewsContext';
+// Import Styled Component
 import { Section, SectionTitle, SectionContainer } from '../style/layout';
 
+// Import Contex
+import NewsContext from '../../context/News/NewsContext';
+
 const TableRow = ({ article, number }) => {
+  // Extract properties from article object
   const {
     author,
     description,
@@ -15,6 +20,7 @@ const TableRow = ({ article, number }) => {
     publishedAt,
     urlToImage
   } = article;
+
   return (
     <tr>
       <th scope='row'>{number}</th>
@@ -51,8 +57,10 @@ const NewsTable = ({ news }) => {
 };
 
 const News = () => {
+  // Get news and method from context
   const { news, isloading, clearNews } = useContext(NewsContext);
 
+  // When client leave this page, clean news
   // eslint-disable-next-line
   useEffect(() => () => clearNews(), []);
 

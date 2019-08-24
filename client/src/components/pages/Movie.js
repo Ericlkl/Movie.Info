@@ -11,14 +11,18 @@ import News from '../Media/News';
 import Tweets from '../Media/Twitter';
 
 const Movie = props => {
+  // Get movie ID from URL params
   const movieID = props.match.params.id;
 
+  // Get movie property from Movie Context API
   const { current, fetchMovie, clearMovies } = useContext(MoviesContext);
 
   useEffect(
     () => {
+      // Fetch Movie When this page initialize
       fetchMovie(movieID);
       return () => {
+        // Clean movie data when user leave this page
         clearMovies();
       };
     },
@@ -29,7 +33,8 @@ const Movie = props => {
   return (
     <Fragment>
       <Navbar />
-      {current !== undefined ? <Description movie={current} /> : <Spinner />}
+      {// If current movie is undefined (waiting for getting data from server) display Spinner
+      current !== undefined ? <Description movie={current} /> : <Spinner />}
       <News />
       <Tweets />
     </Fragment>
