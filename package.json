@@ -2,10 +2,10 @@
   "name": "cab432-a1",
   "version": "1.0.0",
   "description": "Cloud Application ( AWS | NodeJS | ReactJS )",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js",
+    "start": "node server/index.js",
+    "server": "nodemon server/index.js",
     "client": "npm run start --prefix client",
     "client-install": "npm install --prefix client",
     "build": "npm run build --prefix client",
@@ -27,8 +27,8 @@
     "config": "^3.2.2",
     "express": "^4.17.1",
     "express-validator": "^6.1.1",
+    "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
-    "twit": "^2.2.11",
     "twitter": "^1.7.1"
   }
 }

@@ -33,7 +33,6 @@ router.get(
       const result = await newsAPI.get('/', {
         params: {
           q: keyword,
-          from: '2019-07-23',
           sortBy: 'publishedAt',
           apiKey: NewsAPIkey
         }
