@@ -9,6 +9,8 @@
     "client": "npm run start --prefix client",
     "client-install": "npm install --prefix client",
     "build": "npm run build --prefix client",
+    "test": "NODE_ENV= jest",
+    "test-watch": "jest --watch",
     "dev": "concurrently 'npm run server' 'npm run client' "
   },
   "repository": {
@@ -30,5 +32,9 @@
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
     "twitter": "^1.7.1"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "supertest": "^4.0.2"
   }
 }

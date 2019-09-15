@@ -42,7 +42,7 @@ router.get(
       // If fetch tweets fail
       if (err) {
         console.log(err);
-        return res.status(200).send({ msg: 'Server Error!' });
+        return res.status(400).send({ msg: 'Server Error!' });
       }
 
       // If fetch tweets success, send result back to the client
