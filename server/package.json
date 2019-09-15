@@ -4,25 +4,31 @@
   "description": "Cloud Application ( AWS | NodeJS | ReactJS )",
   "main": "index.js",
   "scripts": {
-    "client": "npm run start --prefix client",
-    "server": "npm run server --prefix server",
-    "client-install": "npm install --prefix client",
-    "server-install": "npm install --prefix server",
-    "server-test": "npm run test --prefix server",
-    "client-build": "npm run build --prefix client",
-    "dev": "concurrently 'npm run server' 'npm run client' "
+    "start": "node server/index.js",
+    "server": "nodemon server/index.js",
+    "test": "NODE_ENV= jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ericlkl/CAB432-A1.git"
   },
-  "author": "",
+  "author": "KA LONG LEE",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Ericlkl/CAB432-A1/issues"
   },
   "homepage": "https://github.com/Ericlkl/CAB432-A1#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "config": "^3.2.2",
+    "express": "^4.17.1",
+    "express-validator": "^6.1.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1",
+    "twitter": "^1.7.1"
+  },
   "devDependencies": {
-    "concurrently": "^4.1.2"
+    "jest": "^24.9.0",
+    "supertest": "^4.0.2"
   }
 }
