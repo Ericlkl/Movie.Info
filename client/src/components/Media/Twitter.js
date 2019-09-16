@@ -22,12 +22,7 @@ const Card = ({ tweet }) => {
         <small>{moment(created_at).fromNow()}</small>
       </div>
       <div className='card-body'>
-        <p
-          style={{ fontSize: '0.7rem' }}
-          className='card-text font-weight-light'
-        >
-          {text}
-        </p>
+        <p className='card-text font-weight-light'>{text}</p>
         {entities.hashtags.map(tag => (
           <span className='badge badge-info m-1' key={tag.text}>
             #{tag.text}

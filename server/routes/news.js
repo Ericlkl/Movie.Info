@@ -32,8 +32,7 @@ router.get(
       // Fetch News by keyword
       const result = await newsAPI.get('/', {
         params: {
-          q: keyword,
-          sortBy: 'publishedAt',
+          q: keyword + ' movie',
           apiKey: NewsAPIkey
         }
       });
