@@ -26,28 +26,43 @@ const MoviesState = props => {
   };
 
   const fetchMovies = async () => {
-    const res = await axios.get('/api/movies/', {
-      params: state.control
-    });
-    const payload = res.data;
-    dispatch({ type: FETCH_MOVIES, payload });
+    // Success Case for fetching movie data
+    try {
+      const res = await axios.get('/api/movies/', {
+        params: state.control
+      });
+      const payload = res.data;
+      dispatch({ type: FETCH_MOVIES, payload });
+    } catch (error) {
+      // Display error
+      console.error(error.message);
+    }
   };
 
   const fetchMoviesByName = async name => {
-    const res = await axios.get('/api/search/movie', {
-      params: {
-        name
-      }
-    });
-    const payload = res.data;
-    dispatch({ type: FETCH_MOVIES, payload });
+    // Success Case for fetching movie data
+    try {
+      const res = await axios.get('/api/search/movie', {
+        params: {
+          name
+        }
+      });
+
+      const payload = res.data;
+      dispatch({ type: FETCH_MOVIES, payload });
+    } catch (error) {
+      // Fail
+      console.error(error.message);
+    }
   };
 
   const fetchMovie = async id => {
+    // Success Case for fetching movie data
     try {
       const res = await axios.get(`/api/movies/${id}`);
       dispatch({ type: FETCH_MOVIE, payload: res.data });
     } catch (error) {
+      // Fail
       console.log(error);
     }
   };

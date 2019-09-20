@@ -14,15 +14,21 @@ const NewsState = props => {
   const [state, dispatch] = useReducer(NewsReducer, initState);
 
   const fetchNews = async movie => {
-    const res = await axios.get(`/api/news/`, {
-      params: {
-        keyword: movie
-      }
-    });
-    dispatch({
-      type: FETCH_NEWS,
-      payload: res.data.articles
-    });
+    // try to fetch news
+    try {
+      // update global state when fetch news successfully
+      const res = await axios.get(`/api/news/`, {
+        params: {
+          keyword: movie
+        }
+      });
+      dispatch({
+        type: FETCH_NEWS,
+        payload: res.data.articles
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const clearNews = () => dispatch({ type: CLEAR_NEWS });

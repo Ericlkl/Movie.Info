@@ -14,13 +14,20 @@ const TweetsState = props => {
   const [state, dispatch] = useReducer(TweetsReducer, initState);
 
   const fetchTweets = async movie => {
-    const res = await axios.get('/api/tweets', {
-      params: {
-        query: movie
-      }
-    });
+    // Try to fetch the tweets from server
+    try {
+      // If success, save it to global state
+      const res = await axios.get('/api/tweets', {
+        params: {
+          query: movie
+        }
+      });
 
-    dispatch({ type: FETCH_TWEETS, payload: res.data });
+      dispatch({ type: FETCH_TWEETS, payload: res.data });
+    } catch (error) {
+      // Print error to console when failt to fetch tweets
+      console.log(error.message);
+    }
   };
 
   const clearTweets = () => dispatch({ type: CLEAR_TWEETS });
