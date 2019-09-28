@@ -1,2 +1,2 @@
-# CAB432-A1
-Cloud Application ( AWS | NodeJS | ReactJS )
+# Movie Info
+Cloud Application ( AWS | Docker | MERN stack )
