@@ -9,13 +9,29 @@ import Spinner from '../layout/Spinner';
 import Description from '../Movies/Description';
 import News from '../Media/News';
 import Tweets from '../Media/Twitter';
+import { RouteComponentProps } from 'react-router';
 
-const Movie = props => {
+interface MatchParams {
+  id: string;
+}
+
+interface Props extends RouteComponentProps<MatchParams> {}
+
+const Movie: React.FC<Props> = props => {
   // Get movie ID from URL params
   const movieID = props.match.params.id;
 
   // Get movie property from Movie Context API
   const { current, fetchMovie, clearMovies } = useContext(MoviesContext);
+
+  // If current movie is undefined (waiting for getting data from server) display Spinner
+  const renderMovieDecription = () => {
+    if (current) {
+      return <Description movie={current} />;
+    } else {
+      return <Spinner />;
+    }
+  };
 
   useEffect(
     () => {
@@ -33,8 +49,7 @@ const Movie = props => {
   return (
     <Fragment>
       <Navbar />
-      {// If current movie is undefined (waiting for getting data from server) display Spinner
-      current !== undefined ? <Description movie={current} /> : <Spinner />}
+      {renderMovieDecription()}
       <News />
       <Tweets />
     </Fragment>

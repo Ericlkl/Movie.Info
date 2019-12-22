@@ -6,10 +6,10 @@ import MoviesContext from '../../context/Movies/MoviesContext';
 import Navbar from '../layout/Navbar';
 import Board from '../Movies/Board';
 
-const RankingControl = () => {
+const RankingControl: React.FC = () => {
   const { control, setControl } = useContext(MoviesContext);
 
-  const onSelect = e => {
+  const onSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setControl({
       ...control,
       [e.target.name]: e.target.value
@@ -54,7 +54,7 @@ const RankingControl = () => {
   );
 };
 
-const Ranking = () => {
+const Ranking: React.FC = () => {
   const { movies, fetchMovies, control } = useContext(MoviesContext);
 
   useEffect(() => {

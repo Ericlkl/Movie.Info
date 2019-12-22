@@ -5,9 +5,16 @@ import {
   CLEAR_MOVIES
 } from '../action';
 
-const initialState = {
-  current: {},
-  movies: [{}],
+import { Movie } from '../../types/movie';
+import { Control } from '../../types/control';
+
+const initialState: {
+  current: Movie | undefined;
+  movies: Movie[];
+  control: Control;
+} = {
+  current: undefined,
+  movies: [],
   control: {
     lang: 'en',
     ranking_type: 'popular'

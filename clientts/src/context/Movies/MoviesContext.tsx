@@ -1,21 +1,27 @@
 import { createContext } from 'react';
+import { Movie } from '../../types/movie';
+import { Control } from '../../types/control';
 
-type Control = {
-  lang: string;
-  ranking_type: string;
-};
-
-export const initialState = {
-  current: {},
-  movies: [{}],
+export const initialState: {
+  current: Movie | undefined;
+  movies: Movie[];
+  control: Control;
+  fetchMovie: (id: string) => void;
+  fetchMovies: () => void;
+  fetchMoviesByName: (name: string) => void;
+  setControl: (newControlState: Control) => void;
+  clearMovies: () => void;
+} = {
+  current: undefined,
+  movies: [],
   control: {
     lang: 'en',
     ranking_type: 'popular'
   },
-  fetchMovie: (id: string) => {},
+  fetchMovie: id => {},
   fetchMovies: () => {},
-  fetchMoviesByName: (name: string) => {},
-  setControl: (newControlState: Control) => {},
+  fetchMoviesByName: name => {},
+  setControl: newControlState => {},
   clearMovies: () => {}
 };
 

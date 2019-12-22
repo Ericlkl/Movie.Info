@@ -1,6 +1,7 @@
 // import module
 import moment from 'moment';
 import React, { useContext, useEffect } from 'react';
+import { Movie } from '../../types/movie';
 
 // import Styled component
 import {
@@ -18,7 +19,11 @@ import {
 import NewsContext from '../../context/News/NewsContext';
 import TweetsContext from '../../context/Tweets/TweetsContext';
 
-const Description = ({ movie }) => {
+type DescriptionProps = {
+  movie: Movie;
+};
+
+const Description: React.FC<DescriptionProps> = ({ movie }) => {
   // Get properties from movie object
   const {
     backdrop_path,

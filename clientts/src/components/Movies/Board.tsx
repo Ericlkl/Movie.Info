@@ -3,6 +3,7 @@ import _ from 'lodash';
 import moment from 'moment';
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { Movie } from '../../types/movie';
 
 // import Component
 import Spinner from '../layout/Spinner';
@@ -20,8 +21,12 @@ import {
   MovieStats
 } from '../style/Movie';
 
+type CardProps = {
+  movie: Movie;
+};
+
 // Card Component
-const Card = ({ movie }) => {
+const Card: React.FC<CardProps> = ({ movie }) => {
   // get movie properties from props
   const {
     id,
@@ -80,8 +85,12 @@ const Card = ({ movie }) => {
   );
 };
 
+type BoardProps = {
+  movies: Movie[];
+};
+
 // Board Component for Iterating movies
-const Board = ({ movies }) => {
+const Board: React.FC<BoardProps> = ({ movies }) => {
   // Dont show the board when there is no movies
   if (movies.length === 0) return <Spinner />;
 
