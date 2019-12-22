@@ -1,19 +1,14 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
-import NewsContext from './NewsContext';
+import NewsContext, { providerState } from './NewsContext';
 import NewsReducer from './NewsReducer';
 
 import { FETCH_NEWS, CLEAR_NEWS } from '../action';
 
-const NewsState = props => {
-  const initState = {
-    news: [],
-    isloading: true
-  };
+const NewsState: React.FC = ({ children }) => {
+  const [state, dispatch] = useReducer(NewsReducer, providerState);
 
-  const [state, dispatch] = useReducer(NewsReducer, initState);
-
-  const fetchNews = async movie => {
+  const fetchNews = async (movie: string) => {
     // try to fetch news
     try {
       // update global state when fetch news successfully
@@ -32,7 +27,6 @@ const NewsState = props => {
   };
 
   const clearNews = () => dispatch({ type: CLEAR_NEWS });
-
   return (
     <NewsContext.Provider
       value={{
@@ -42,7 +36,7 @@ const NewsState = props => {
         fetchNews
       }}
     >
-      {props.children}
+      {children}
     </NewsContext.Provider>
   );
 };
