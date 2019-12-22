@@ -4,7 +4,7 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom';
 // Context State
 import MoviesProvider from './context/Movies/MoviesProvider';
 import NewsState from './context/News/NewsProvider';
-import TweetsState from './context/Tweets/TweetsState';
+import TweetsState from './context/Tweets/TweetsProvider';
 
 // Pages
 import Search from './components/pages/Search';

@@ -1,12 +1,7 @@
-import {
-  FETCH_MOVIE,
-  SET_CONTROL,
-  FETCH_MOVIES,
-  CLEAR_MOVIES
-} from '../action';
+import { MoviesAction } from '../action';
 
-import { Movie } from '../../types/movie';
-import { Control } from '../../types/control';
+import { Movie } from '../../types';
+import { Control } from '../../types';
 
 const initialState: {
   current: Movie | undefined;
@@ -37,22 +32,22 @@ type Action = {
 
 const MoviesReducer = (state: State, action: Action) => {
   switch (action.type) {
-    case SET_CONTROL:
+    case MoviesAction.SET_CONTROL:
       return {
         ...initialState,
         control: action.payload
       };
-    case FETCH_MOVIES:
+    case MoviesAction.FETCH_MOVIES:
       return {
         ...state,
         movies: [...action.payload]
       };
-    case FETCH_MOVIE:
+    case MoviesAction.FETCH_MOVIE:
       return {
         ...state,
         current: action.payload
       };
-    case CLEAR_MOVIES:
+    case MoviesAction.CLEAR_MOVIES:
       return { ...initialState };
     default:
       return state;

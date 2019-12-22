@@ -3,7 +3,7 @@ import axios from 'axios';
 import NewsContext, { providerState } from './NewsContext';
 import NewsReducer from './NewsReducer';
 
-import { FETCH_NEWS, CLEAR_NEWS } from '../action';
+import { NewsAction } from '../action';
 
 const NewsState: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(NewsReducer, providerState);
@@ -18,7 +18,7 @@ const NewsState: React.FC = ({ children }) => {
         }
       });
       dispatch({
-        type: FETCH_NEWS,
+        type: NewsAction.FETCH_NEWS,
         payload: res.data.articles
       });
     } catch (error) {
@@ -26,7 +26,7 @@ const NewsState: React.FC = ({ children }) => {
     }
   };
 
-  const clearNews = () => dispatch({ type: CLEAR_NEWS });
+  const clearNews = () => dispatch({ type: NewsAction.CLEAR_NEWS });
   return (
     <NewsContext.Provider
       value={{

@@ -1,6 +1,6 @@
 import { createContext } from 'react';
-import { Movie } from '../../types/movie';
-import { Control } from '../../types/control';
+import { Movie } from '../../types/';
+import { Control } from '../../types/';
 
 export const initialState: {
   current: Movie | undefined;

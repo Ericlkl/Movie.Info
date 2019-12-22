@@ -3,7 +3,7 @@ import _ from 'lodash';
 import moment from 'moment';
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { Movie } from '../../types/movie';
+import { Movie } from '../../types';
 
 // import Component
 import Spinner from '../layout/Spinner';

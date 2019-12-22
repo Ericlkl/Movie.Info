@@ -2,18 +2,13 @@ import React, { useReducer } from 'react';
 import MoviesContext, { initialState } from './MoviesContext';
 import MoviesReducer from './MoviesReducer';
 import axios from 'axios';
-import {
-  FETCH_MOVIES,
-  FETCH_MOVIE,
-  SET_CONTROL,
-  CLEAR_MOVIES
-} from '../action';
+import { MoviesAction } from '../action';
 
 const MoviesProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(MoviesReducer, initialState);
 
   const setControl = (newControlState: object) => {
-    dispatch({ type: SET_CONTROL, payload: newControlState });
+    dispatch({ type: MoviesAction.SET_CONTROL, payload: newControlState });
   };
 
   const fetchMovies = async () => {
@@ -23,7 +18,7 @@ const MoviesProvider: React.FC = ({ children }) => {
         params: state.control
       });
       const payload = res.data;
-      dispatch({ type: FETCH_MOVIES, payload });
+      dispatch({ type: MoviesAction.FETCH_MOVIES, payload });
     } catch (error) {
       // Display error
       console.error(error.message);
@@ -40,7 +35,7 @@ const MoviesProvider: React.FC = ({ children }) => {
       });
 
       const payload = res.data;
-      dispatch({ type: FETCH_MOVIES, payload });
+      dispatch({ type: MoviesAction.FETCH_MOVIES, payload });
     } catch (error) {
       // Fail
       console.error(error.message);
@@ -51,14 +46,14 @@ const MoviesProvider: React.FC = ({ children }) => {
     // Success Case for fetching movie data
     try {
       const res = await axios.get(`/api/movies/${id}`);
-      dispatch({ type: FETCH_MOVIE, payload: res.data });
+      dispatch({ type: MoviesAction.FETCH_MOVIE, payload: res.data });
     } catch (error) {
       // Fail
       console.log(error);
     }
   };
 
-  const clearMovies = () => dispatch({ type: CLEAR_MOVIES });
+  const clearMovies = () => dispatch({ type: MoviesAction.CLEAR_MOVIES });
 
   return (
     <MoviesContext.Provider

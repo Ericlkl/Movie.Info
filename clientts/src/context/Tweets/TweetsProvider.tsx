@@ -1,19 +1,14 @@
 import axios from 'axios';
 import React, { useReducer } from 'react';
 
-import TweetsContext from './TweetsContext';
+import TweetsContext, { initialState } from './TweetsContext';
 import TweetsReducer from './TweetsReducer';
-import { FETCH_TWEETS, CLEAR_TWEETS } from '../action';
+import { TweetsAction } from '../action';
 
-const initState = {
-  tweets: [],
-  isloading: true
-};
+const TweetsProvider: React.FC = ({ children }) => {
+  const [state, dispatch] = useReducer(TweetsReducer, initialState);
 
-const TweetsState = props => {
-  const [state, dispatch] = useReducer(TweetsReducer, initState);
-
-  const fetchTweets = async movie => {
+  const fetchTweets = async (movie: string) => {
     // Try to fetch the tweets from server
     try {
       // If success, save it to global state
@@ -23,14 +18,14 @@ const TweetsState = props => {
         }
       });
 
-      dispatch({ type: FETCH_TWEETS, payload: res.data });
+      dispatch({ type: TweetsAction.FETCH_TWEETS, payload: res.data });
     } catch (error) {
       // Print error to console when failt to fetch tweets
       console.log(error.message);
     }
   };
 
-  const clearTweets = () => dispatch({ type: CLEAR_TWEETS });
+  const clearTweets = () => dispatch({ type: TweetsAction.CLEAR_TWEETS });
 
   return (
     <TweetsContext.Provider
@@ -41,9 +36,9 @@ const TweetsState = props => {
         clearTweets
       }}
     >
-      {props.children}
+      {children}
     </TweetsContext.Provider>
   );
 };
 
-export default TweetsState;
+export default TweetsProvider;
