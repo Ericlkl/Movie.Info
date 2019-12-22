@@ -10,7 +10,13 @@ import { Section, SectionTitle, SectionContainer } from '../style/layout';
 // Import Context API
 import TweetsContext from '../../context/Tweets/TweetsContext';
 
-const Card = ({ tweet }) => {
+import { Tweet } from '../../types/index';
+
+type CardProps = {
+  tweet: Tweet;
+};
+
+const Card: React.FC<CardProps> = ({ tweet }) => {
   // get tweet property from tweet object
   const { text, user, entities, created_at } = tweet;
   return (
@@ -23,7 +29,7 @@ const Card = ({ tweet }) => {
       </div>
       <div className='card-body'>
         <p className='card-text font-weight-light'>{text}</p>
-        {entities.hashtags.map(tag => (
+        {entities.hashtags.map((tag: { text: string }) => (
           <span className='badge badge-info m-1' key={tag.text}>
             #{tag.text}
           </span>
@@ -33,8 +39,11 @@ const Card = ({ tweet }) => {
   );
 };
 
+type BoardProps = {
+  tweets: Tweet[];
+};
 // Tweets Board Component for literating the tweets
-const Board = ({ tweets }) => {
+const Board: React.FC<BoardProps> = ({ tweets }) => {
   return (
     <div className='card-columns'>
       {tweets.map(tweet => (

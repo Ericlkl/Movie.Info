@@ -9,7 +9,14 @@ import { Section, SectionTitle, SectionContainer } from '../style/layout';
 // Import Contex
 import NewsContext from '../../context/News/NewsContext';
 
-const TableRow = ({ article, number }) => {
+import { NewsArticle } from '../../types/index';
+
+type TableRowProps = {
+  article: NewsArticle;
+  number: number;
+};
+
+const TableRow: React.FC<TableRowProps> = ({ article, number }) => {
   // Extract properties from article object
   const {
     author,
@@ -25,9 +32,10 @@ const TableRow = ({ article, number }) => {
     <tr>
       <th scope='row'>{number}</th>
       <td>
-        <a className='text-muted' href={url}>{`${title} - ${author} (${
-          source.name
-        })`}</a>
+        <a
+          className='text-muted'
+          href={url}
+        >{`${title} - ${author} (${source.name})`}</a>
         <img src={urlToImage} className='img-fluid' alt='cover' />
       </td>
       <td>{description}</td>
@@ -36,7 +44,11 @@ const TableRow = ({ article, number }) => {
   );
 };
 
-const NewsTable = ({ news }) => {
+type NewsTableProps = {
+  news: NewsArticle[];
+};
+
+const NewsTable: React.FC<NewsTableProps> = ({ news }) => {
   return (
     <table className='table table-striped table-hover'>
       <thead>
