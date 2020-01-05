@@ -10,6 +10,7 @@
     "server-install": "npm install --prefix server",
     "server-test": "npm run test --prefix server",
     "client-build": "npm run build --prefix client",
+    "server-build": "npm run build --prefix server",
     "dev": "concurrently 'npm run server' 'npm run client' "
   },
   "repository": {
