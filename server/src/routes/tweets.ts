@@ -1,12 +1,16 @@
 // Import modules
-const express = require('express');
-const router = express.Router();
-const { check, validationResult } = require('express-validator');
+import { Response, Request, Router } from 'express';
+const router = Router();
+import { check, validationResult } from 'express-validator';
 // Tweeter API Setup and Config
-const Twitter = require('twitter');
-const config = require('config');
-const twConfig = config.get('tweeterAPI');
-const twitterAPI = new Twitter(twConfig);
+import Twitter from 'twitter';
+
+const twitterAPI = new Twitter({
+  consumer_key: process.env.TWITTER_CONSUMER_KEY as string,
+  consumer_secret: process.env.TWITTER_CONSUMER_SECRET as string,
+  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY as string,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET as string
+});
 
 // @route  GET api/tweets/?query=''
 // @desc   GET tweets which related to the query keyword
@@ -52,4 +56,4 @@ router.get(
   }
 );
 
-module.exports = router;
+export default router;

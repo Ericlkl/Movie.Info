@@ -1,12 +1,11 @@
-// Import Modules
-const express = require('express');
-const router = express.Router();
-const { check, validationResult } = require('express-validator');
+// Import modules
+import { Response, Request, Router } from 'express';
+const router = Router();
+import { check, validationResult } from 'express-validator';
 
+import { tmdbAPI } from '../api';
 // TMDB API manager Setup
-const config = require('config');
-const TMDBAPIkey = config.get('TMDBAPIkey');
-const TMDB_API = require('../api').TMDB_API;
+const api_key = process.env.TMDBAPIkey;
 
 // @route  GET api/search/movie/?name=''
 // @desc   GET movies list by keyword
@@ -30,10 +29,10 @@ router.get(
 
     try {
       // Fetch Movies by name
-      const result = await TMDB_API.get(`/search/movie`, {
+      const result = await tmdbAPI.get(`/search/movie`, {
         params: {
           query: name,
-          api_key: TMDBAPIkey
+          api_key
         }
       });
       // Send data back to client if success
@@ -45,4 +44,4 @@ router.get(
   }
 );
 
-module.exports = router;
+export default router;

@@ -1,11 +1,15 @@
-// Import Modules
-const express = require('express');
-const router = express.Router();
-const { check, param, validationResult } = require('express-validator');
+// Import modules
+import { Response, Request, Router } from 'express';
+import { check, param, validationResult } from 'express-validator';
+
+const router = Router();
+import { tmdbAPI } from '../api';
 // TMDB API Manager SetUp
-const config = require('config');
-const TMDBAPIkey = config.get('TMDBAPIkey');
-const TMDB_API = require('../api').TMDB_API;
+const api_key = process.env.TMDBAPIkey;
+
+type SpecificRouteParams = {
+  id: string;
+};
 
 // @route  GET api/movies/:id
 // @desc   GET specfic movies information
@@ -15,7 +19,7 @@ router.get(
   param('id', 'Please provide ID on URL params ')
     .not()
     .isEmpty(),
-  async (req, res) => {
+  async (req: Request<SpecificRouteParams>, res: Response) => {
     // Check the URL params
     const errors = validationResult(req);
 
@@ -27,9 +31,9 @@ router.get(
 
     try {
       // Fetch Specific Movie Information from TMDB
-      const result = await TMDB_API.get(`/movie/${req.params.id}`, {
+      const result = await tmdbAPI.get(`/movie/${req.params.id}`, {
         params: {
-          api_key: TMDBAPIkey
+          api_key
         }
       });
 
@@ -63,7 +67,7 @@ const rankingRouteChecker = [
 // @route  GET api/movies/
 // @desc   GET a list of movies by ranking type
 // @access Public
-router.get('/', rankingRouteChecker, async (req, res) => {
+router.get('/', rankingRouteChecker, async (req: Request, res: Response) => {
   // Check the URL query
   const errors = validationResult(req);
 
@@ -78,10 +82,10 @@ router.get('/', rankingRouteChecker, async (req, res) => {
 
   try {
     // Fetch Movie Ranking list from TMDB
-    const result = await TMDB_API.get(`/movie/${ranking_type}`, {
+    const result = await tmdbAPI.get(`/movie/${ranking_type}`, {
       params: {
         language: lang,
-        api_key: TMDBAPIkey
+        api_key
       }
     });
 
@@ -94,4 +98,4 @@ router.get('/', rankingRouteChecker, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

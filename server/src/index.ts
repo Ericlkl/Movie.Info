@@ -1,4 +1,5 @@
-const app = require('./app');
+import { Application } from 'express';
+import app from './app';
 
 // Set up port to 5000
 const PORT = process.env.PORT || 5000;

@@ -1,5 +1,5 @@
-const request = require('supertest');
-const app = require('../app');
+import request from 'supertest';
+import app from '../app';
 
 describe('Search API', () => {
   test('Should able to search movie by movie name', async () => {

@@ -1,12 +1,11 @@
-// Import Modules
-const express = require('express');
-const router = express.Router();
-const { check, validationResult } = require('express-validator');
+// Import modules
+import { Response, Request, Router } from 'express';
+const router = Router();
+import { check, validationResult } from 'express-validator';
 
 // NEWSAPI manager Setup
-const config = require('config');
-const { newsAPI } = require('../api/index');
-const NewsAPIkey = config.get('NewsAPIkey');
+import { newsAPI } from '../api';
+const apiKey = process.env.NewsAPIkey;
 
 // @route  GET api/news/?keyword=""
 // @desc   GET a list of news by keyword
@@ -33,7 +32,7 @@ router.get(
       const result = await newsAPI.get('/', {
         params: {
           q: keyword + ' movie',
-          apiKey: NewsAPIkey
+          apiKey
         }
       });
       // Send the result data back to client if success
@@ -46,4 +45,4 @@ router.get(
   }
 );
 
-module.exports = router;
+export default router;
