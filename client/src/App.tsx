@@ -11,7 +11,8 @@ import Search from './components/pages/Search';
 import Movie from './components/pages/Movie';
 import Ranking from './components/pages/Ranking';
 
-import './App.css';
+// Scss
+import './assets/scss/index.scss';
 
 const App: React.FC = () => {
   return (

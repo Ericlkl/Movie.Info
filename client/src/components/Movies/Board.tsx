@@ -8,22 +8,27 @@ import { Movie } from '../../types';
 // import Component
 import Spinner from '../layout/Spinner';
 
-// import Styled-components
-import {
-  MovieBoard,
-  MovieCard,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardHeaderInfo,
-  CardImg,
-  CardContent,
-  MovieStats
-} from '../style/Movie';
-
 type CardProps = {
   movie: Movie;
 };
+
+{
+  /* <Link to={`/movie/${id}`}>
+<h6>{title}</h6>
+</Link>
+<h6>
+<i className='far fa-clock' /> {moment(release_date).calendar()}
+</h6>
+
+<p className='card-text'>
+{_.truncate(overview, {
+length: 200,
+separator: ' '
+})}
+</p>
+
+ */
+}
 
 // Card Component
 const Card: React.FC<CardProps> = ({ movie }) => {
@@ -40,48 +45,41 @@ const Card: React.FC<CardProps> = ({ movie }) => {
   } = movie;
 
   return (
-    <MovieCard>
-      <CardImg
-        src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-        alt='moviePoster'
-      />
+    <div className='movieboard_card'>
+      <div className='movieboard_card_left'>
+        <img
+          src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+          alt='movie poster'
+        />
+      </div>
+      <div className='movieboard_card_right'>
+        <Link className='movieboard_card_right_title' to={`/movie/${id}`}>
+          <h3>{title}</h3>
+        </Link>
+        <h3 className='movieboard_card_right_time'>
+          <i className='far fa-clock' /> {release_date}
+        </h3>
+        <p className='movieboard_card_right_desc'>
+          {_.truncate(overview, {
+            length: 200,
+            separator: ' '
+          })}
+        </p>
 
-      <CardContent>
-        <CardHeader>
-          <CardHeaderInfo>
-            <Link to={`/movie/${id}`}>
-              <h6>{title}</h6>
-            </Link>
-            <h6>
-              <i className='far fa-clock' /> {moment(release_date).calendar()}
-            </h6>
-          </CardHeaderInfo>
-        </CardHeader>
-
-        <CardBody>
-          <p className='card-text'>
-            {_.truncate(overview, {
-              length: 200,
-              separator: ' '
-            })}
-          </p>
-        </CardBody>
-
-        <CardFooter>
-          <MovieStats>
+        <div className='movieboard_card_right_statsbox'>
+          <p className='movieboard_card_right_statsbox_info'>
             <i className='fab fa-gripfire' />
             {popularity}
-          </MovieStats>
-          <MovieStats>
+          </p>
+          <p className='movieboard_card_right_statsbox_info'>
             <i className='far fa-star' /> {vote_average} / 10
-          </MovieStats>
-          <MovieStats>
-            <i className='fas fa-users' />
-            {vote_count}
-          </MovieStats>
-        </CardFooter>
-      </CardContent>
-    </MovieCard>
+          </p>
+          <p className='movieboard_card_right_statsbox_info'>
+            <i className='fas fa-users' /> {vote_count}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -96,11 +94,11 @@ const Board: React.FC<BoardProps> = ({ movies }) => {
 
   return (
     <Fragment>
-      <MovieBoard>
+      <div className='movieboard'>
         {movies.map(movie => (
           <Card movie={movie} key={movie.id} />
         ))}
-      </MovieBoard>
+      </div>
     </Fragment>
   );
 };

@@ -17,9 +17,9 @@ interface MatchParams {
 
 interface Props extends RouteComponentProps<MatchParams> {}
 
-const Movie: React.FC<Props> = props => {
+const Movie: React.FC<Props> = ({ match }) => {
   // Get movie ID from URL params
-  const movieID = props.match.params.id;
+  const movieID = match.params.id;
 
   // Get movie property from Movie Context API
   const { current, fetchMovie, clearMovies } = useContext(MoviesContext);
