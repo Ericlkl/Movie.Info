@@ -2,10 +2,9 @@
 import moment from 'moment';
 import React, { useContext, useEffect } from 'react';
 
+import { Container } from 'react-bootstrap';
 // Import Component
 import Spinner from '../layout/Spinner';
-// Import Styled Components
-import { Section, SectionTitle, SectionContainer } from '../style/layout';
 
 // Import Context API
 import TweetsContext from '../../context/Tweets/TweetsContext';
@@ -63,12 +62,12 @@ const Twitter = () => {
   useEffect(() => () => clearTweets(), []);
 
   return (
-    <Section>
-      <SectionContainer>
-        <SectionTitle>Tweets</SectionTitle>
+    <section className='section'>
+      <Container>
+        <h3 className='section_title'>Tweets</h3>
         {isloading ? <Spinner /> : <Board tweets={tweets} />}
-      </SectionContainer>
-    </Section>
+      </Container>
+    </section>
   );
 };
 

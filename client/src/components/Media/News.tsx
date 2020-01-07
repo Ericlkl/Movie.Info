@@ -1,10 +1,9 @@
 import React, { useContext, useEffect } from 'react';
+import { Container } from 'react-bootstrap';
 import moment from 'moment';
 
 // Import Component
 import Spinner from '../layout/Spinner';
-// Import Styled Component
-import { Section, SectionTitle, SectionContainer } from '../style/layout';
 
 // Import Contex
 import NewsContext from '../../context/News/NewsContext';
@@ -77,12 +76,12 @@ const News = () => {
   useEffect(() => () => clearNews(), []);
 
   return (
-    <Section bgColor='#f4f4f4'>
-      <SectionContainer>
-        <SectionTitle>News</SectionTitle>
+    <section className='section'>
+      <Container>
+        <h3 className='section_title'>News</h3>
         {isloading ? <Spinner /> : <NewsTable news={news} />}
-      </SectionContainer>
-    </Section>
+      </Container>
+    </section>
   );
 };
 

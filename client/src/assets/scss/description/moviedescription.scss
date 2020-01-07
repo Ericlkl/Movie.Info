@@ -1,0 +1,55 @@
+.moviedesc {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+
+  &_content {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr;
+    max-width: 1100px;
+    margin: 0 auto;
+    &_left {
+      > img {
+        padding: 2rem;
+        min-width: 450px;
+        width: 100%;
+      }
+    }
+
+    &_right {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+
+      &_title {
+        font-weight: 500;
+      }
+
+      &_status {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      &_overview {
+        padding: 1rem 0;
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+@media (min-width: 950px) {
+  .moviedesc {
+    &_content {
+      display: grid;
+      grid-auto-rows: 1fr;
+      grid-template-columns: 40% 60%;
+    }
+  }
+}
+
+@media (min-width: 1100px) {
+}

@@ -12,24 +12,6 @@ type CardProps = {
   movie: Movie;
 };
 
-{
-  /* <Link to={`/movie/${id}`}>
-<h6>{title}</h6>
-</Link>
-<h6>
-<i className='far fa-clock' /> {moment(release_date).calendar()}
-</h6>
-
-<p className='card-text'>
-{_.truncate(overview, {
-length: 200,
-separator: ' '
-})}
-</p>
-
- */
-}
-
 // Card Component
 const Card: React.FC<CardProps> = ({ movie }) => {
   // get movie properties from props

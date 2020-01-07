@@ -10,4 +10,12 @@ a:hover {
   text-decoration: none;
 }
 
+.section_title {
+  color: black;
+  text-align: center;
+  margin: 2rem 1rem;
+}
+
 @import './layout/board.scss';
+
+@import './description/moviedescription.scss';
