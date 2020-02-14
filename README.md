@@ -28,11 +28,8 @@ Web Browser
 
 ```
 1. cd to the root folder of this project 
-2. npm install
-3. npm run client-install
-4. npm run server-install
-5. npm run client-build
-6. npm run dev
+2. npm run project-install
+3. npm run dev
 
 ```
 
