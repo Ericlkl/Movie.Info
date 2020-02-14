@@ -4,6 +4,7 @@
   "description": "Cloud Application ( AWS | NodeJS | ReactJS )",
   "main": "index.js",
   "scripts": {
+    "project-install": "npm i && npm run client-install && npm run client-build && npm run server-install && npm run server-build",
     "client": "npm run start --prefix client",
     "server": "npm run server --prefix server",
     "client-install": "npm install --prefix client",
