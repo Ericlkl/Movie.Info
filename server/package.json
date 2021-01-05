@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/Ericlkl/CAB432-A1#readme",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "config": "^3.2.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
